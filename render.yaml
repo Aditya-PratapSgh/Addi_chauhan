@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: addi-chauhan-projecthub
+    runtime: node
+    rootDir: backend
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: CLIENT_ORIGIN
+        value: https://YOUR-RENDER-SERVICE.onrender.com
+      - key: SEED_DEMO
+        value: true
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: STUDENT_EMAIL
+        sync: false
+      - key: STUDENT_PASSWORD
+        sync: false
